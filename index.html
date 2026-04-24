@@ -1,0 +1,755 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>努力克服自卑的我們｜無價值感與生存焦慮的心理戰</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@300;400;500;700;900&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --black:  #080808;
+      --ink:    #1a1212;
+      --gray:   #3a3232;
+      --lgray:  #777;
+      --cream:  #f7f2ee;
+      --red:    #c0392b;
+      --red2:   #922b21;
+      --green:  #1d6b47;
+      --gold:   #a0782a;
+      --dim:    #1c1414;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Noto Serif TC', serif;
+      background: var(--black);
+      color: #e8ddd8;
+      line-height: 1.9;
+      font-size: 16px;
+    }
+
+    img { display: block; width: 100%; height: auto; }
+
+    /* ─── MASTHEAD ─────────────────────────────── */
+    .masthead {
+      background: #000;
+      text-align: center;
+      padding: 44px 24px 32px;
+      border-bottom: 3px solid var(--red);
+      position: relative; overflow: hidden;
+    }
+    .masthead::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% -20%, rgba(192,57,43,.25) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .masthead-eyebrow {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: .7rem; font-weight: 700; letter-spacing: .32em;
+      color: var(--red); text-transform: uppercase; margin-bottom: 16px;
+    }
+    .masthead-title {
+      font-size: clamp(2rem, 6vw, 4.6rem);
+      font-weight: 900; letter-spacing: .05em; line-height: 1.1;
+      color: #fff; margin-bottom: 16px;
+    }
+    .masthead-sub {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: clamp(.8rem, 1.6vw, 1rem);
+      color: rgba(255,255,255,.5); letter-spacing: .1em;
+    }
+    .masthead-tags {
+      display: flex; justify-content: center; gap: 12px; flex-wrap: wrap;
+      margin-top: 20px;
+    }
+    .tag {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: .68rem; font-weight: 700; letter-spacing: .15em;
+      background: rgba(192,57,43,.2); border: 1px solid rgba(192,57,43,.5);
+      color: #e0a090; padding: 4px 14px;
+    }
+
+    /* ─── NAV ──────────────────────────────────── */
+    .nav-bar {
+      background: #0d0808; border-bottom: 1px solid #2a1a1a;
+      display: flex; overflow-x: auto;
+      position: sticky; top: 0; z-index: 100;
+    }
+    .nav-bar a {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: .7rem; font-weight: 700; letter-spacing: .15em;
+      color: rgba(255,255,255,.45); text-decoration: none;
+      padding: 11px 18px; white-space: nowrap;
+      border-bottom: 2px solid transparent;
+      transition: color .2s, border-color .2s;
+    }
+    .nav-bar a:hover { color: #e0a090; border-bottom-color: var(--red); }
+
+    /* ─── WRAP ─────────────────────────────────── */
+    .site-wrap { max-width: 1160px; margin: 0 auto; padding: 52px 24px 80px; }
+
+    /* ─── SECTION LABEL ────────────────────────── */
+    .section-label {
+      font-family: 'Noto Sans TC', sans-serif;
+      background: var(--red); color: #fff;
+      font-size: .62rem; font-weight: 700; letter-spacing: .22em;
+      padding: 3px 12px; display: inline-block; margin-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .section-label.green  { background: var(--green); }
+    .section-label.gold   { background: var(--gold); }
+    .section-label.dark   { background: #2a1a1a; border: 1px solid #4a2a2a; }
+
+    /* ─── HEADINGS ─────────────────────────────── */
+    .hed-xl { font-size: clamp(1.8rem,4.5vw,3rem); font-weight: 900; line-height: 1.18; margin-bottom: 18px; color: #fff; }
+    .hed-lg { font-size: clamp(1.3rem,3vw,2rem); font-weight: 700; line-height: 1.22; margin-bottom: 14px; color: #f0e0dc; }
+    .hed-md { font-size: clamp(1rem,2.2vw,1.45rem); font-weight: 700; line-height: 1.3; margin-bottom: 10px; color: #f0e0dc; }
+
+    .dek { font-size: 1rem; color: rgba(255,255,255,.55); line-height: 1.75; margin-bottom: 18px; font-weight: 300; }
+
+    /* ─── BODY TEXT ────────────────────────────── */
+    .body-text p { margin-bottom: 1em; color: #c8bab5; font-size: .95rem; line-height: 1.95; }
+    .body-text p:first-child::first-letter {
+      font-size: 3.4em; font-weight: 900; float: left;
+      line-height: .78; margin: .06em .1em 0 0;
+      color: var(--red);
+    }
+
+    /* ─── CAPTION ──────────────────────────────── */
+    .caption {
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: .7rem; color: rgba(255,255,255,.35);
+      padding: 6px 10px; border-top: 1px solid #2a1a1a;
+      background: rgba(255,255,255,.03); letter-spacing: .06em;
+    }
+
+    /* ─── PULL QUOTE ────────────────────────────── */
+    .pull-quote {
+      border-top: 2px solid var(--red);
+      border-bottom: 2px solid var(--red);
+      margin: 24px 0; padding: 18px 20px;
+      font-style: italic; font-weight: 500;
+      color: #e09080; text-align: center;
+      font-size: 1.05rem; line-height: 1.8;
+    }
+    .pull-quote.green-q {
+      border-color: var(--green); color: #7ecfa0;
+    }
+
+    /* ─── DIVIDER ───────────────────────────────── */
+    .divider { border: none; border-top: 1px solid #2a1a1a; margin: 48px 0; }
+    .divider-accent { border: none; border-top: 2px solid var(--red); margin: 48px 0; }
+
+    /* ═══════════════════════════════════════════
+       LAYOUT SECTIONS
+    ═══════════════════════════════════════════ */
+
+    /* HERO */
+    .hero {
+      display: grid; grid-template-columns: 60fr 40fr;
+      gap: 36px; align-items: center;
+    }
+    .hero-img img { aspect-ratio: 16/9; object-fit: cover; }
+
+    /* FULL-WIDTH + TWO-COL BODY */
+    .full-img img { aspect-ratio: 16/9; object-fit: cover; max-height: 460px; }
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; padding-top: 28px; }
+
+    /* ALT TWO-COL */
+    .alt { display: grid; grid-template-columns: 55fr 45fr; gap: 36px; align-items: start; }
+    .alt.rev { grid-template-columns: 45fr 55fr; }
+    .alt.rev .alt-img { order: 2; }
+    .alt.rev .alt-text { order: 1; }
+    .alt .alt-img img { aspect-ratio: 4/3; object-fit: cover; }
+
+    /* THREE COL */
+    .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 28px; }
+    .three-col .col img { aspect-ratio: 4/3; object-fit: cover; }
+
+    /* QUOTE SPREAD */
+    .quote-spread {
+      background: #000; padding: 64px 48px; text-align: center;
+      border-top: 2px solid var(--red); border-bottom: 2px solid var(--red);
+      position: relative; overflow: hidden;
+    }
+    .quote-spread::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at center, rgba(192,57,43,.15) 0%, transparent 70%);
+    }
+    .quote-spread blockquote {
+      position: relative; z-index: 1;
+      font-size: clamp(1.1rem,2.5vw,1.65rem);
+      font-weight: 400; line-height: 2.1; font-style: italic;
+      color: #e8d0c8; max-width: 720px; margin: 0 auto 20px;
+    }
+    .quote-spread cite {
+      position: relative; z-index: 1;
+      font-family: 'Noto Sans TC', sans-serif;
+      font-size: .8rem; color: rgba(255,255,255,.35);
+      letter-spacing: .2em; font-style: normal;
+    }
+
+    /* GREEN CLIMAX */
+    .green-section {
+      background: #0a1a10; border-top: 2px solid var(--green);
+      border-bottom: 2px solid var(--green); padding: 8px 0;
+    }
+
+    /* CLOSING */
+    .closing {
+      text-align: center; background: #000;
+      padding: 72px 40px; position: relative; overflow: hidden;
+    }
+    .closing::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: radial-gradient(ellipse at 50% 40%, rgba(29,107,71,.3) 0%, transparent 65%);
+    }
+    .closing * { position: relative; z-index: 1; }
+    .closing .hed-xl { color: #a0dfb0; }
+    .closing .dek { color: rgba(255,255,255,.6); }
+
+    /* ─── MUSIC PLAYER ─────────────────────────── */
+    .music-player {
+      position: fixed;
+      bottom: 28px; right: 28px;
+      width: 300px;
+      background: rgba(5,0,0,.93);
+      border: 1px solid rgba(192,57,43,.5);
+      border-radius: 12px;
+      padding: 16px 18px;
+      z-index: 999;
+      box-shadow: 0 8px 32px rgba(0,0,0,.7);
+      backdrop-filter: blur(14px);
+      color: white;
+      font-family: 'Noto Sans TC', sans-serif;
+    }
+    .music-player.collapsed {
+      width: 52px; height: 52px; padding: 0;
+      overflow: hidden; border-radius: 50%; cursor: pointer;
+    }
+    .music-player.collapsed .player-inner { display: none; }
+    .music-player.collapsed .collapsed-icon { display: flex; }
+    .player-toggle-btn {
+      position: absolute; top: -11px; right: -11px;
+      width: 24px; height: 24px; border-radius: 50%;
+      background: var(--red); border: none; cursor: pointer;
+      color: white; font-size: .75rem;
+      display: flex; align-items: center; justify-content: center; z-index: 2;
+    }
+    .collapsed-icon {
+      display: none; width: 52px; height: 52px;
+      align-items: center; justify-content: center;
+      font-size: 1.4rem; color: var(--red);
+    }
+    .player-title {
+      font-size: .7rem; font-weight: 700; letter-spacing: .14em;
+      color: var(--red); text-transform: uppercase; margin-bottom: 6px;
+    }
+    .player-song {
+      font-size: .82rem; color: rgba(255,255,255,.75);
+      margin-bottom: 14px; line-height: 1.4;
+    }
+    .player-controls {
+      display: flex; align-items: center; gap: 10px; margin-bottom: 12px;
+    }
+    .ctrl-btn {
+      background: none; border: none; color: rgba(255,255,255,.7);
+      cursor: pointer; font-size: 1.15rem; padding: 4px;
+      transition: color .2s, transform .15s;
+    }
+    .ctrl-btn:hover { color: white; transform: scale(1.12); }
+    .ctrl-btn.active { color: var(--red); }
+    .play-btn {
+      width: 38px; height: 38px; border-radius: 50%;
+      background: var(--red); border: none; color: white;
+      font-size: 1.1rem; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: background .2s;
+    }
+    .play-btn:hover { background: var(--red2); }
+    .seek-bar {
+      width: 100%; height: 4px; border-radius: 2px;
+      -webkit-appearance: none; appearance: none;
+      background: rgba(255,255,255,.12); cursor: pointer; outline: none;
+      margin-bottom: 4px;
+    }
+    .seek-bar::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px; height: 12px; border-radius: 50%;
+      background: var(--red); cursor: pointer;
+    }
+    .time-row {
+      display: flex; justify-content: space-between;
+      font-size: .66rem; color: rgba(255,255,255,.35); margin-bottom: 10px;
+    }
+    .vol-row { display: flex; align-items: center; gap: 8px; }
+    .vol-icon { font-size: .88rem; opacity: .55; }
+    .vol-bar {
+      flex: 1; height: 3px; border-radius: 2px;
+      -webkit-appearance: none; appearance: none;
+      background: rgba(255,255,255,.12); cursor: pointer; outline: none;
+    }
+    .vol-bar::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 10px; height: 10px; border-radius: 50%;
+      background: rgba(255,255,255,.55); cursor: pointer;
+    }
+
+    /* ─── FOOTER ────────────────────────────────── */
+    footer {
+      background: #000; color: rgba(255,255,255,.2);
+      text-align: center; padding: 22px;
+      font-family: 'Noto Sans TC', sans-serif; font-size: .68rem; letter-spacing: .12em;
+      border-top: 1px solid #1a0a0a;
+    }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 768px) {
+      .hero, .alt, .alt.rev, .two-col, .three-col { grid-template-columns: 1fr; }
+      .alt.rev .alt-img { order: 0; }
+      .alt.rev .alt-text { order: 0; }
+      .quote-spread { padding: 40px 20px; }
+      .closing { padding: 48px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ══════════ MASTHEAD ══════════ -->
+<header class="masthead">
+  <div class="masthead-eyebrow">韓劇深度解析 ◆ 第 1–2 集</div>
+  <div class="masthead-title">《努力克服自卑的我們》</div>
+  <div class="masthead-sub">無價值感與生存焦慮的心理戰｜Edited by Masky Wang</div>
+  <div class="masthead-tags">
+    <span class="tag">心理剖析</span>
+    <span class="tag">自卑防衛</span>
+    <span class="tag">階級社會</span>
+    <span class="tag">雙向救贖</span>
+  </div>
+</header>
+
+<!-- ══════════ NAV ══════════ -->
+<nav class="nav-bar">
+  <a href="#cover">核心探討</a>
+  <a href="#characters">雙主角</a>
+  <a href="#watch">情緒手錶</a>
+  <a href="#dinner">喧鬧的掩飾</a>
+  <a href="#hate">憎恨本質</a>
+  <a href="#survive">求生本能</a>
+  <a href="#green">綠燈亮起</a>
+  <a href="#bully">職場霸凌</a>
+  <a href="#body">身體抗議</a>
+  <a href="#dignity">尊嚴盡頭</a>
+  <a href="#exile">社交剔除</a>
+  <a href="#class">階級共鳴</a>
+  <a href="#defend">孤立辯護</a>
+  <a href="#answer">核心解答</a>
+  <a href="#redeem">雙向救贖</a>
+</nav>
+
+<!-- ══════════ MAIN ══════════ -->
+<main class="site-wrap">
+
+  <!-- ─ 1. HERO：封面 ─ -->
+  <section id="cover" style="margin-bottom:52px;">
+    <div class="hero">
+      <div class="hero-img">
+        <img src="img/page-01.jpg" alt="努力克服自卑的我們 封面">
+        <div class="caption">▲ 在現代社會的洪流裡，每個人都在進行一場關於「無價值感」的無聲戰爭。</div>
+      </div>
+      <div class="hero-text">
+        <span class="section-label">封面故事</span>
+        <h1 class="hed-xl">靈魂與現實的對壘</h1>
+        <p class="dek">這不只是一部關於自卑的韓劇，而是一面殘酷的鏡子——映照出我們每一個人在競爭社會裡，與「無價值感」搏鬥的真實樣貌。</p>
+        <div class="body-text">
+          <p>在現代社會的洪流裡，每個人都在進行一場關於「無價值感」的無聲戰爭。這不只是生存的焦慮，更是靈魂與現實的對壘。我們透過影視圈這個階級分明、充滿比較的殘酷縮影，試圖在那層層剝開的心理刻畫中，尋找克服自卑的可能。</p>
+        </div>
+        <div class="pull-quote">「核心探討：現代人在競爭社會中的焦慮，以及與自身「無價值感」的戰鬥。」</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─ 2. 雙主角 ─ -->
+  <section id="characters" style="margin-bottom:52px;">
+    <div style="margin-bottom:16px;">
+      <span class="section-label gold">人物誌</span>
+    </div>
+    <div class="full-img">
+      <img src="img/page-02.jpg" alt="雙主角解析">
+      <div class="caption">▲ 黃東滿 × 邊恩雅：表面武裝之下，藏著兩顆千瘡百孔的靈魂。</div>
+    </div>
+    <div class="two-col" style="padding-top:32px;">
+      <div>
+        <h2 class="hed-lg">黃東滿的面具</h2>
+        <div class="body-text">
+          <p>每個人都帶著面具生活。黃東滿用毒舌和喧鬧，試圖掩飾那二十年未出道的窘迫，他是個被困在失敗裡的夢想家——他的憤世嫉俗，不過是一個不敢承認自己還在等待的人，最後的自尊。</p>
+        </div>
+      </div>
+      <div>
+        <h2 class="hed-lg">邊恩雅的武裝</h2>
+        <div class="body-text">
+          <p>而邊恩雅則把自己活成一把冷酷的「斧頭」，用專業的武裝來應對內心深處被拋棄的恐懼。這些表面的人設，其實都是保護創傷的防衛機制——越是強悍的外表，往往藏著越深的傷。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─ 3 & 4：情緒手錶 + 喧鬧的掩飾 ─ -->
+  <section style="margin-bottom:52px;">
+    <div style="margin-bottom:16px;">
+      <span class="section-label dark">深度解析</span>
+    </div>
+    <div class="alt" style="margin-bottom:48px;" id="watch">
+      <div class="alt-img">
+        <img src="img/page-03.jpg" alt="情緒手錶">
+        <div class="caption">▲ 情緒手錶：紅燈是社會對負面情緒的零容忍；綠燈，是「被懂、被接住」的瞬間。</div>
+      </div>
+      <div class="alt-text">
+        <span class="section-label">具象化的崩潰</span>
+        <h2 class="hed-lg">情緒手錶的隱喻</h2>
+        <div class="body-text">
+          <p>想像有一只「情緒手錶」，能即時讀取你的憤怒與焦慮。當紅燈亮起，那是社會對負面情緒的零容忍，也是一種無形的監控與隱喻。而那罕見的綠燈，代表的是在冰冷的規則中，我們終於獲得了「被懂、被接住」的瞬間。</p>
+        </div>
+        <div class="pull-quote">「紅燈的恐懼與綠燈的救贖，都是同一顆脆弱靈魂的兩面。」</div>
+      </div>
+    </div>
+
+    <div class="alt rev" id="dinner">
+      <div class="alt-img">
+        <img src="img/page-04.jpg" alt="喧鬧的掩飾">
+        <div class="caption">▲ 那場令人窒息的階級聚餐，是自卑在飯桌上的赤裸演出。</div>
+      </div>
+      <div class="alt-text">
+        <span class="section-label">喧鬧的掩飾</span>
+        <h2 class="hed-lg">令人窒息的階級聚餐</h2>
+        <div class="body-text">
+          <p>在充滿階級落差的聚餐桌上，喧鬧往往是自卑的變形。當東滿喋喋不休地挑剔菜色、批評朋友時，其實他只是想掩蓋那份一事無成的窘迫，用尖銳的聲音證明自己還存在。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-accent">
+
+  <!-- ─ 5 + 6 + 7：三欄特寫 ─ -->
+  <section style="margin-bottom:52px;">
+    <div style="margin-bottom:24px;">
+      <span class="section-label">特寫群像</span>
+      <h2 class="hed-lg" style="margin-top:10px;">失敗者的三種臉孔</h2>
+    </div>
+    <div class="three-col">
+      <div class="col" id="hate">
+        <img src="img/page-05.jpg" alt="憎恨的本質">
+        <div class="caption">▲ 照妖鏡——成功者的恐懼</div>
+        <div style="padding-top:18px;">
+          <span class="section-label dark">心理剖析</span>
+          <h3 class="hed-md">憎恨源於恐懼</h3>
+          <div class="body-text">
+            <p>有些憎恨，其實是源於恐懼。成功者對失敗者的厭惡，有時是因為對方像一面「照妖鏡」，無情地照出了自己成名前的卑微。這種「反向投射」，讓我們看清了成功背後的焦慮。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col" id="survive">
+        <img src="img/page-06.jpg" alt="失敗者的求生本能">
+        <div class="caption">▲ 子彈孔大衣、催繳通知、深夜的狂喊</div>
+        <div style="padding-top:18px;">
+          <span class="section-label dark">生存本能</span>
+          <h3 class="hed-md">證明存在的掙扎</h3>
+          <div class="body-text">
+            <p>失敗者也有自己的求生本能。東滿穿上那件幻想中代表歷史中心的大衣，卻掩不住要躲避催繳、為貓借貸的現實。深夜山頂的狂喊，更是因為恐懼被這個世界遺忘。</p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <img src="img/page-07.jpg" alt="第一次綠燈亮起">
+        <div class="caption" id="green">▲ 第一次綠燈亮起：看穿偽裝的接納</div>
+        <div style="padding-top:18px;">
+          <span class="section-label green">綠燈時刻</span>
+          <h3 class="hed-md">看穿偽裝的接納</h3>
+          <div class="body-text">
+            <p>二十年來，那只手錶第一次亮起了象徵安心的綠燈。奇蹟發生的關鍵，在於有人看穿了你的防禦，卻沒有轉身離去，而是溫柔地告訴你：我想讀讀你的心聲。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─ 8. 職場霸凌 ─ -->
+  <section id="bully" style="margin-bottom:52px;">
+    <div class="alt">
+      <div class="alt-img">
+        <img src="img/page-08.jpg" alt="職場霸凌">
+        <div class="caption">▲「一個創作者，無法創造出自己沒有的東西。」——這句話像刀，精準刺入最深的傷口。</div>
+      </div>
+      <div class="alt-text">
+        <span class="section-label">職場解析</span>
+        <h2 class="hed-lg">劇本《天氣師》的公開處刑</h2>
+        <div class="body-text">
+          <p>職場的權力霸凌有時極其殘酷，像是對創作者的公開處刑。當恩雅被迫評價東滿的劇本時，那句「無法創造出自己沒有的東西」，直擊了創作者最核心的痛點——那份缺乏生命力量的真實匱乏。</p>
+        </div>
+        <div class="pull-quote">「惡意刁難，不過是將另一個人的傷口，作為自己優越感的祭品。」</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+</main>
+
+<!-- ══════════ QUOTE SPREAD ══════════ -->
+<section class="quote-spread">
+  <blockquote>
+    「我唯一想要的，<br>就是不要感到焦慮。」
+  </blockquote>
+  <cite>—— 階級之下的共同心聲</cite>
+</section>
+
+<main class="site-wrap">
+
+  <!-- ─ 9. 身體抗議 ─ -->
+  <section id="body" style="margin:52px 0;">
+    <div class="alt rev">
+      <div class="alt-img">
+        <img src="img/page-09.jpg" alt="身體的抗議">
+        <div class="caption">▲ 內耗型的沉默自毀 vs. 外耗型的瘋狂爆食——同樣的壓力，不同的崩潰形式。</div>
+      </div>
+      <div class="alt-text">
+        <span class="section-label">身心解析</span>
+        <h2 class="hed-lg">內耗與外耗的極端反應</h2>
+        <div class="body-text">
+          <p>當壓力超載時，身體會代替靈魂發聲。內耗型的恩雅用流鼻血來表達無聲的自我毀滅；而外耗型的東滿，則在尊嚴受損時瘋狂爆食，試圖用食物填補內心那個巨大的黑洞。</p>
+        </div>
+        <div class="pull-quote">「當靈魂承受不了，身體就會用它自己的語言說話。」</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─ 10. 尊嚴的盡頭 ─ -->
+  <section id="dignity" style="margin-bottom:52px;">
+    <div class="alt">
+      <div class="alt-img">
+        <img src="img/page-10.jpg" alt="尊嚴的盡頭">
+        <div class="caption">▲ 那個摔倒在桌上的狼狽身影，將失敗者的窘境展露無遺。</div>
+      </div>
+      <div class="alt-text">
+        <span class="section-label">關鍵場景</span>
+        <h2 class="hed-lg">失控與滑稽的跌倒</h2>
+        <div class="body-text">
+          <p>尊嚴的盡頭，往往伴隨著失控與滑稽。經歷了無數的孤立與挖苦，東滿最後的反擊顯得如此無力。那個摔倒在桌上的狼狽身影，將失敗者的窘境展露無遺，卻也讓人感到深深的無奈。</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─ 11 & 12：社交剔除 + 階級共鳴 ─ -->
+  <section style="margin-bottom:52px;">
+    <div class="two-col">
+      <div id="exile">
+        <img src="img/page-11.jpg" alt="徹底的社交剔除">
+        <div class="caption">▲「黃東滿 禁止進入」——社會性死亡，是最溫柔也最殘酷的刑罰。</div>
+        <div style="padding-top:20px;">
+          <span class="section-label dark">社會分析</span>
+          <h3 class="hed-md">溫柔而殘酷的軟刀子</h3>
+          <div class="body-text">
+            <p>有一種傷害，叫作「社會性死亡」。這種徹底的社交剔除，不帶爭吵、不動聲色，只是溫柔而殘酷地將你從圈子裡抹除，像一把軟刀子，安靜地割裂了所有的連結。</p>
+          </div>
+        </div>
+      </div>
+      <div id="class">
+        <img src="img/page-12.jpg" alt="階級之下的共鳴">
+        <div class="caption">▲「我唯一想要的，就是不要感到焦慮。」——這句話擊中了所有底層的心聲。</div>
+        <div style="padding-top:20px;">
+          <span class="section-label dark">階級解讀</span>
+          <h3 class="hed-md">底層的心聲</h3>
+          <div class="body-text">
+            <p>在階級之下，我們共享著相同的生存恐懼。所有的才華枯竭與衝突引爆，其實都是因為我們都太害怕失敗——那份對被淘汰的恐懼，精準地擊中了現代底層無法擺脫的生存焦慮。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider-accent">
+
+  <!-- ─ 13. 孤立辯護 ─ -->
+  <section id="defend" style="margin-bottom:52px;">
+    <div class="alt rev">
+      <div class="alt-img">
+        <img src="img/page-13.jpg" alt="孤立無援的辯護">
+        <div class="caption">▲「什麼是無能？」——那場孤立無援的辯護，換來的是更多嘲諷，和無聲的崩潰。</div>
+      </div>
+      <div class="alt-text">
+        <span class="section-label">心理臨界</span>
+        <h2 class="hed-lg">反問「什麼是無能？」</h2>
+        <div class="body-text">
+          <p>當你試圖為同樣處於邊緣的人辯護時，往往會換來更多的嘲諷。那種因為共情而產生的痛楚，在現實的牆壁前顯得如此微弱，最終只能引發一場無聲的、心理層面的崩潰。</p>
+        </div>
+        <div class="pull-quote">「深知自己同樣面臨淘汰危機，因強烈共情而舌戰群儒，卻只換來更深的孤立。」</div>
+      </div>
+    </div>
+  </section>
+
+  <hr class="divider">
+
+  <!-- ─ 14. 核心解答 ─ -->
+  <section id="answer" style="margin-bottom:52px;">
+    <div class="alt">
+      <div class="alt-img">
+        <img src="img/page-14.jpg" alt="直擊核心的解答">
+        <div class="caption">▲「由愛而生的力量」——當兩個人同時卸下防備，真正的對話才得以發生。</div>
+      </div>
+      <div class="alt-text">
+        <span class="section-label gold">核心洞見</span>
+        <h2 class="hed-lg">直擊核心的解答：由愛而生的力量</h2>
+        <div class="body-text">
+          <p>真正的解答，往往藏在卸下防備之後。當東滿收起尖刺，虛心面對劇本的缺陷時，他才發現，劇本缺少的不是技巧，而是「由愛而生的力量」。</p>
+          <p>這是恩雅用自己的創傷換來的答案——她不僅指出了東滿未曾真正愛過人的痛點，也是她以自身創傷換來的解答。痛點即是治癒的起點。</p>
+        </div>
+        <div class="pull-quote">「一個創作者能給予的，從來不超過他自己所擁有的。」</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ══════════ GREEN CLIMAX ══════════ -->
+<section class="green-section">
+  <div style="max-width:1160px; margin:0 auto; padding:52px 24px;" id="redeem">
+    <div style="text-align:center; margin-bottom:36px;">
+      <span class="section-label green">雙向救贖</span>
+      <h2 class="hed-xl" style="color:#a0dfb0; margin-top:12px;">治癒與前行</h2>
+    </div>
+    <div class="alt">
+      <div class="alt-img">
+        <img src="img/page-15.jpg" alt="雙向救贖的旅程">
+        <div class="caption">▲ 一份承載溫暖的小菜，讓兩顆破碎的心同步亮起了綠燈。</div>
+      </div>
+      <div class="alt-text">
+        <div class="body-text">
+          <p>旅程的終點，是雙向的救贖。當我們捨棄暴力，用機智重拾自我力量；當一份承載溫暖的小菜，讓兩顆破碎的心同步亮起綠燈，我們終於在彼此的共鳴中，找到了繼續前行的勇氣。</p>
+        </div>
+        <div class="pull-quote green-q">「捨棄武力，以機智犀利的毒舌拆穿虛偽，重拾自我力量——這，才是言語真正的勝利。」</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <p>《努力克服自卑的我們》深度解析 ◆ 第 1–2 集 ◆ 無價值感與生存焦慮的心理戰 ◆ Edited by Masky Wang</p>
+</footer>
+
+<!-- ══════════ MUSIC PLAYER ══════════ -->
+<div class="music-player" id="musicPlayer">
+  <button class="player-toggle-btn" id="toggleBtn" title="收起">✕</button>
+  <div class="player-inner">
+    <div class="player-title">♪ 背景音樂</div>
+    <div class="player-song">配樂</div>
+    <div class="player-controls">
+      <button class="ctrl-btn" id="loopBtn" title="循環">↻</button>
+      <button class="play-btn" id="playBtn">▶</button>
+      <button class="ctrl-btn" id="muteBtn" title="靜音">🔊</button>
+    </div>
+    <input type="range" class="seek-bar" id="seekBar" value="0" min="0" max="100" step="0.1">
+    <div class="time-row">
+      <span id="timeCurrent">0:00</span>
+      <span id="timeDuration">0:00</span>
+    </div>
+    <div class="vol-row">
+      <span class="vol-icon">🔉</span>
+      <input type="range" class="vol-bar" id="volBar" value="70" min="0" max="100">
+    </div>
+  </div>
+  <div class="collapsed-icon">♪</div>
+  <audio id="audioEl" src="music.mp3" preload="metadata"></audio>
+</div>
+
+<script>
+  const audio = document.getElementById('audioEl');
+  const playBtn = document.getElementById('playBtn');
+  const muteBtn = document.getElementById('muteBtn');
+  const loopBtn = document.getElementById('loopBtn');
+  const seekBar = document.getElementById('seekBar');
+  const volBar  = document.getElementById('volBar');
+  const timeCurrent = document.getElementById('timeCurrent');
+  const timeDuration = document.getElementById('timeDuration');
+  const toggleBtn = document.getElementById('toggleBtn');
+  const player = document.getElementById('musicPlayer');
+
+  audio.volume = 0.7;
+
+  function fmt(s) {
+    const m = Math.floor(s / 60), sec = Math.floor(s % 60);
+    return m + ':' + String(sec).padStart(2, '0');
+  }
+
+  audio.addEventListener('loadedmetadata', () => {
+    timeDuration.textContent = fmt(audio.duration);
+  });
+
+  audio.addEventListener('timeupdate', () => {
+    if (!audio.duration) return;
+    seekBar.value = (audio.currentTime / audio.duration) * 100;
+    timeCurrent.textContent = fmt(audio.currentTime);
+  });
+
+  audio.addEventListener('ended', () => { playBtn.textContent = '▶'; });
+
+  playBtn.addEventListener('click', () => {
+    if (audio.paused) { audio.play(); playBtn.textContent = '⏸'; }
+    else { audio.pause(); playBtn.textContent = '▶'; }
+  });
+
+  muteBtn.addEventListener('click', () => {
+    audio.muted = !audio.muted;
+    muteBtn.textContent = audio.muted ? '🔇' : '🔊';
+  });
+
+  loopBtn.addEventListener('click', () => {
+    audio.loop = !audio.loop;
+    loopBtn.classList.toggle('active', audio.loop);
+  });
+
+  seekBar.addEventListener('input', () => {
+    audio.currentTime = (seekBar.value / 100) * audio.duration;
+  });
+
+  volBar.addEventListener('input', () => {
+    audio.volume = volBar.value / 100;
+  });
+
+  let collapsed = false;
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    collapsed = true;
+    player.classList.add('collapsed');
+    toggleBtn.style.display = 'none';
+  });
+  player.addEventListener('click', () => {
+    if (!collapsed) return;
+    collapsed = false;
+    player.classList.remove('collapsed');
+    toggleBtn.style.display = 'flex';
+  });
+</script>
+
+</body>
+</html>
